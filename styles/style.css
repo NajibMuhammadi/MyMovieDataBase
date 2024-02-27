@@ -1,0 +1,291 @@
+/* Variables */
+:root {
+    --header-grey: #121212;
+    --primary-black: #000000;
+    --primary-white: #ffffff;
+    --primary-grey: #1A1A1A;
+    --text-yellow: #F5C518;
+    --text-blue: #5595E7;
+}
+
+/* Base */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--primary-black);
+    max-width: 100%;
+}
+
+/* Utils */
+.content-wrapper {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.d-none {
+    display: none;
+}
+
+/* Header */
+.header {
+    background-color: var(--header-grey);
+    width: 100%;
+    padding: 1.5rem;
+    z-index: 999;
+}
+
+.header__flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header img {
+    width: 150px;
+    background-color: yellow;
+}
+
+.header form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.header input {
+    width: 50%;
+    padding: 1rem;
+    border-radius: 2rem 0 0 2rem;
+    border: none;
+}
+
+.header__form-btn {
+    border-radius: 0 2rem 2rem 0;
+    width: 5rem;
+    border: none;
+    cursor: pointer;
+}
+
+.header__fav-btn {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--text-yellow);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Carousel */
+.carousel {
+    margin: auto;
+    margin-top: 2rem;
+    width: 70%;
+    aspect-ratio: 3/2;
+    ;
+    position: relative;
+    background-color: var(--primary-grey);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.carousel__slide {
+    position: absolute;
+    margin: auto;
+    width: 80%;
+    inset: 0;
+    visibility: hidden;
+    aspect-ratio: 3/2;
+    transition: 200ms visibility ease-in-out;
+}
+
+.carousel__slide[data-active] {
+    visibility: visible;
+}
+
+.carousel__slide iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel__btn {
+    position: absolute;
+    font-size: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-yellow);
+    background: none;
+    border: none;
+}
+
+.carousel__btn:hover,
+.carousel__btn:focus {
+    color: var(--primary-white);
+}
+
+.carousel__btn.prev {
+    left: 1rem;
+}
+
+.carousel__btn.next {
+    right: 1rem;
+}
+
+/* Här skriver ni er CSS */
+.popular__title,
+.results__title {
+    color: white;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.popular__card-container,
+.results,
+.favorites {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    row-gap: 2rem;
+}
+
+.popular__card,
+.search__card,
+.movie__details,
+.favorite__card {
+    background-color: var(--primary-grey);
+    padding: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.popular__card-img,
+.search__card-img,
+.favorite__card-img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.popular__card-fav {
+    position: absolute;
+    color: white;
+    left: 0;
+}
+
+.popular__card-subtitle,
+.search__card-subtitle,
+.favorite__card-subtitle {
+    color: white;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.movie__text-container {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.movie__poster-plot {
+    display: flex;
+}
+
+.movie__plot {
+    padding: 2rem;
+    color: white;
+    white-space: normal;
+}
+
+.movie__actor-title,
+.movie__actor-subtitle {
+    color: white;
+    padding: .3rem;
+}
+
+
+.favorite__card-container,
+.search__poster-container {
+    position: relative;
+}
+
+.favrotie__poster-fav,
+.search__poster-fav {
+    position: absolute;
+    color: white;
+    top: -7px;
+    right: 4px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 1380px) {
+    .content-wrapper {
+        width: 100%;
+    }
+
+
+}
+
+@media screen and (max-width: 1100px) {
+    .content-wrapper {
+        width: 100%;
+    }
+
+    .carousel {
+        width: 90%;
+        margin-top: 1rem;
+
+    }
+
+    .popular__card-container,
+    .results,
+    .favorites {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 3rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .content-wrapper {
+        width: 100%;
+    }
+
+    .carousel {
+        width: 95%;
+        margin-top: 1rem;
+
+    }
+
+    .popular__card-container,
+    .results,
+    .favorites {
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 3rem;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .popular__card-subtitle {
+        padding: 0 0 0 1rem;
+        text-align: start;
+    }
+
+    .movie__poster-plot {
+        flex-direction: column;
+    }
+
+    .movie__plot {
+        padding: 1rem;
+    }
+
+}
